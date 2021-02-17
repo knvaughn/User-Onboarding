@@ -10,19 +10,23 @@ const initialForm = {
 }
 
 function App() {
-  const [form, setForm] = useState();
+  const [form, setForm] = useState(initialForm);
 
   useEffect(() => {
-    setForm(initialForm);
+    
   }, []);
 
   const inputChange = (name, value) => {
     setForm({...form, [name]: value});
   }
 
+  const submit = () => {
+
+  }
+
   return (
     <div className="App">
-      <Form form={form} inputChange={inputChange} />
+      <Form form={form} inputChange={inputChange} submit={submit} />
     </div>
   );
 }

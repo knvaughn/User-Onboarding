@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Form(props) {
-    const { form, inputChange } = props;
+    const { form, inputChange, submit } = props;
 
     const onChange = (event) => {
         const { name, value, type, checked } = event.target;
@@ -9,15 +9,21 @@ function Form(props) {
         inputChange(name, returnValue);
     }
 
+    const onSubmit = (event) => {
+        event.preventDefault();
+        submit();
+    }
+
     return (
         <div>
-            <form>
+            <form onSubmit={onSubmit}>
                 <label>
                     Name 
                     <input 
                         name="name"
                         type="text"
                         onChange={onChange}
+                        value={form.name}
                     />
                 </label>
                 <label>
@@ -26,6 +32,7 @@ function Form(props) {
                         name="email"
                         type="email"
                         onChange={onChange}
+                        value={form.email}
                     />
                 </label>
                 <label>
@@ -34,6 +41,7 @@ function Form(props) {
                         name="password"
                         type="password"
                         onChange={onChange}
+                        value={form.password}
                     />
                 </label>
                 <label>
@@ -42,6 +50,7 @@ function Form(props) {
                         name="termsOfService"
                         type="checkbox"
                         onChange={onChange}
+                        checked={form.termsOfService}
                     />
                 </label>
                 <button>Submit</button>
