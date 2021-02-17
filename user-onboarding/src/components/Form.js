@@ -1,6 +1,7 @@
 import React from 'react';
 
-function Form() {
+function Form(props) {
+    const { form } = props;
     return (
         <div>
             <form>
