@@ -25,11 +25,12 @@ function App() {
   const [form, setForm] = useState(initialForm);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
+  const [users, setUsers] = useState([]);
 
   const addNewUser = (newUser) => {
     axios.post('https://reqres.in/api/users', newUser)
     .then((response) => {
-      console.log(response);
+      setUsers([...users, response.data]);
       setForm(initialForm);
     })
     .catch((error) => console.log(error));
