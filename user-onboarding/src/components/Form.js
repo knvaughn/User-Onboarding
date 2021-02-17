@@ -1,7 +1,14 @@
 import React from 'react';
 
 function Form(props) {
-    const { form } = props;
+    const { form, inputChange } = props;
+
+    const onChange = (event) => {
+        const { name, value, type, checked } = event.target;
+        const returnValue = type === "checkbox" ? checked : value;
+        inputChange(name, returnValue);
+    }
+
     return (
         <div>
             <form>
@@ -10,6 +17,7 @@ function Form(props) {
                     <input 
                         name="name"
                         type="text"
+                        onChange={onChange}
                     />
                 </label>
                 <label>
@@ -17,6 +25,7 @@ function Form(props) {
                     <input 
                         name="email"
                         type="email"
+                        onChange={onChange}
                     />
                 </label>
                 <label>
@@ -24,6 +33,7 @@ function Form(props) {
                     <input 
                         name="password"
                         type="password"
+                        onChange={onChange}
                     />
                 </label>
                 <label>
@@ -31,6 +41,7 @@ function Form(props) {
                     <input 
                         name="termsOfService"
                         type="checkbox"
+                        onChange={onChange}
                     />
                 </label>
                 <button>Submit</button>

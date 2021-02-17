@@ -16,9 +16,13 @@ function App() {
     setForm(initialForm);
   }, []);
 
+  const inputChange = (name, value) => {
+    setForm({...form, [name]: value});
+  }
+
   return (
     <div className="App">
-      <Form form={form} />
+      <Form form={form} inputChange={inputChange} />
     </div>
   );
 }
