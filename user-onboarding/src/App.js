@@ -70,7 +70,7 @@ function App() {
       {
         users.map((user) => {
           return (
-            <div>
+            <div key={user.id}>
               <h3>{user.name}</h3>
               <p>{user.email}</p>
             </div>
