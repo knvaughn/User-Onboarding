@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Form(props) {
-    const { form, inputChange, submit } = props;
+    const { form, formErrors, inputChange, submit, disabled } = props;
 
     const onChange = (event) => {
         const { name, value, type, checked } = event.target;
@@ -26,6 +26,7 @@ function Form(props) {
                         value={form.name}
                     />
                 </label>
+                <div>{formErrors.name}</div>
                 <label>
                     Email 
                     <input 
@@ -35,6 +36,7 @@ function Form(props) {
                         value={form.email}
                     />
                 </label>
+                <div>{formErrors.email}</div>
                 <label>
                     Password 
                     <input 
@@ -44,6 +46,7 @@ function Form(props) {
                         value={form.password}
                     />
                 </label>
+                <div>{formErrors.password}</div>
                 <label>
                     Terms of Service
                     <input 
@@ -53,7 +56,8 @@ function Form(props) {
                         checked={form.termsOfService}
                     />
                 </label>
-                <button>Submit</button>
+                <div>{formErrors.termsOfService}</div>
+                <button disabled={disabled}>Submit</button>
             </form>
         </div>
     )
