@@ -62,6 +62,21 @@ function App() {
   return (
     <div className="App">
       <Form form={form} formErrors={formErrors} inputChange={inputChange} submit={submit} disabled={disabled} />
+      <h2>Users:</h2>
+      {
+        users.length === 0 &&
+        <p>No users</p>
+      }
+      {
+        users.map((user) => {
+          return (
+            <div>
+              <h3>{user.name}</h3>
+              <p>{user.email}</p>
+            </div>
+          )
+        })
+      }
     </div>
   );
 }
