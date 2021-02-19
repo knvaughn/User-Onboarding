@@ -24,6 +24,7 @@ function Form(props) {
                         type="text"
                         onChange={onChange}
                         value={form.name}
+                        data-cy="name"
                     />
                 </label>
                 <div>{formErrors.name}</div>
@@ -34,6 +35,7 @@ function Form(props) {
                         type="email"
                         onChange={onChange}
                         value={form.email}
+                        data-cy="email"
                     />
                 </label>
                 <div>{formErrors.email}</div>
@@ -44,6 +46,7 @@ function Form(props) {
                         type="password"
                         onChange={onChange}
                         value={form.password}
+                        data-cy="password"
                     />
                 </label>
                 <div>{formErrors.password}</div>
@@ -54,6 +57,7 @@ function Form(props) {
                         type="checkbox"
                         onChange={onChange}
                         checked={form.termsOfService}
+                        data-cy="termsOfService"
                     />
                 </label>
                 <div>{formErrors.termsOfService}</div>
