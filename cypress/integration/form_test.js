@@ -41,4 +41,36 @@ describe("Form Application", () => {
         submitBtn().click();
         cy.contains(/Kristin Vaughn/i).should('exist');
     });
+
+    it("Submit button is disabled if name is left empty", () => {
+        name().should('have.value', '');
+        email().type('vaughn.kristin.n@gmail.com');
+        password().type('12345');
+        termsOfService().check();
+        submitBtn().should('be.disabled');
+    });
+
+    it("Submit button is disabled if email is left empty", () => {
+        name().type('Kristin Vaughn');
+        email().should('have.value', '');
+        password().type('12345');
+        termsOfService().check();
+        submitBtn().should('be.disabled');
+    });
+
+    it("Submit button is disabled if password is left empty", () => {
+        name().type('Kristin Vaughn');
+        email().type('vaughn.kristin.n@gmail.com');
+        password().should('have.value', '');
+        termsOfService().check();
+        submitBtn().should('be.disabled');
+    });
+
+    it("Submit button is disabled if terms of service is not checked", () => {
+        name().type('Kristin Vaughn');
+        email().type('vaughn.kristin.n@gmail.com');
+        password().type('12345');
+        termsOfService().should('not.be.checked');
+        submitBtn().should('be.disabled');
+    });
 });
