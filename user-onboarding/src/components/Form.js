@@ -61,7 +61,7 @@ function Form(props) {
                     />
                 </label>
                 <div>{formErrors.termsOfService}</div>
-                <button disabled={disabled}>Submit</button>
+                <button disabled={disabled} data-cy="submitBtn">Submit</button>
             </form>
         </div>
     )
